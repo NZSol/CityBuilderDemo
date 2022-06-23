@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Item
+public class ItemBase
 {
     protected string type { get; set; }
     protected int typeHash { get; }

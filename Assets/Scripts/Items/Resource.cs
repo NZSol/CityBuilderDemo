@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Food : ItemBase
+public class Resource : ItemBase
 {
-    public Food(string type, string id, float restore, int quantity)
+    public Resource(string type, string id, float restore, int quantity)
     {
         this.type = type;
         this.id = id;
