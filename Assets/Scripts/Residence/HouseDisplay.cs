@@ -5,43 +5,42 @@ using UnityEngine;
 
 public class HouseDisplay : MonoBehaviour
 {
-    public Dictionary<int, Food> foodStore = new Dictionary<int, Food>();
+    Dictionary<int, Food> foodStock = new Dictionary<int, Food>();
+    Dictionary<int, Item> itemStockpile = new Dictionary<int, Item>();
     int foodItems;
 
     // Start is called before the first frame update
     void Start()
     {
-        foodStore.Add(0, new Food("apple", "0x0001", 0.25f, 8));
-        foreach(KeyValuePair<int, Food> kvp in foodStore)
-        {
+        foodStock.Add(0, new Food("apple", "0x0001", 0.25f, 8));
+        //foreach(KeyValuePair<int, Food> kvp in foodStock)
+        //{
             //foodItems++;
             //print($"Key:{kvp.Key}       item:{kvp.Value.getset_Type}");
-        }
+        //}
     }
 
     public void addFood(Food item)
     {
         bool detected = false;
-        for (int i = 0; i < foodStore.Count; i++)
+        for (int i = 0; i < foodStock.Count; i++)
         {
-            foodStore.TryGetValue(i, out Food value);
+            foodStock.TryGetValue(i, out Food value);
+            print(value.getset_Type);
+            if(value.getTypeHash == item.getTypeHash)
             {
-                print(value.getset_Type);
-                if(value.getTypeHash == item.getTypeHash)
-                {
-                    value.getset_Quantity += item.getset_Quantity;
-                    print(value.getset_Quantity);
-                    detected = true;
-                }
+                value.getset_Quantity += item.getset_Quantity;
+                print(value.getset_Quantity);
+                detected = true;
             }
         }
         if (!detected)
         {
             //print($"{item.getset_Type}      {item.getset_Id}        {item.getset_Quantity}");
-            foodStore.Add(++foodItems, item);
+            foodStock.Add(++foodItems, item);
         }
-        for(int i = 0; i < foodStore.Count; i++){
-            print($"Key:{i}       item:{foodStore.GetValueOrDefault(i).getset_Type}");
+        for(int i = 0; i < foodStock.Count; i++){
+            //print($"Key:{i}       item:{foodStore.GetValueOrDefault(i).getset_Type}");
         }
     }
 
