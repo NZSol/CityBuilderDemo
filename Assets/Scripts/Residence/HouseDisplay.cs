@@ -48,6 +48,12 @@ public class HouseDisplay : MonoBehaviour
         }
     }
 
+    //Called when a person retrieves an item
+    public ItemBase ItemCollect(ItemBase item)
+    {
+        return item;
+    }
+
     void UpdateGrid(int key, int quantity)
     {
         itemDisplay.transform.GetChild(key).gameObject.GetComponent<ObjectDisplayInfo>().getset_Count = quantity;
