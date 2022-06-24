@@ -14,6 +14,8 @@ public class ItemBase
     protected float restore { get; set; }
     protected int quantity { get; set; }
 
+    protected float weight { get; }
+
     protected Image icon { get; set; }
 
 
@@ -47,6 +49,11 @@ public class ItemBase
     {
         get { return quantity; }
         set { quantity = value; }
+    }
+
+    public float get_Weight
+    {
+        get { return weight * quantity; }
     }
 
     public Image getset_Icon
